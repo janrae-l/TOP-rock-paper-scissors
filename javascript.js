@@ -9,15 +9,38 @@ function getComputerChoice() {
   return compChoice;
 }
 
-console.log(getComputerChoice());
+//console.log(getComputerChoice());
 
-function playerSelection() {
-  const playerChoice = prompt(
-    "Choose between rock, paper, scissors"
-  ).toLowerCase();
+// function playerPrompt() {
+//   const playerChoice = prompt(
+//     "Choose between rock, paper, scissors"
+//   ).toLowerCase();
 
-  return playerChoice;
+//   return playerChoice;
+// }
+
+//const playerMove = playerPrompt();
+//console.log(playerMove);
+
+const playerSelection = "rock";
+const computerSelection = "scissors";
+
+if (
+  (playerSelection === "scissors" && computerSelection === "rock") ||
+  (playerSelection === "rock" && computerSelection === "paper") ||
+  (playerSelection === "paper" && computerSelection === "scissors")
+) {
+  console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+} else if (
+  (playerSelection === "scissors" && computerSelection === "scissors") ||
+  (playerSelection === "paper" && computerSelection === "paper") ||
+  (playerSelection === "rock" && computerSelection === "rock")
+) {
+  console.log(`It's a tie! Play again`);
+} else if (
+  (playerSelection === "rock" && computerSelection === "scissors") ||
+  (playerSelection === "paper" && computerSelection === "rock") ||
+  (playerSelection === "scissors" && computerSelection === "paper")
+) {
+  console.log(`You win! You beat ${computerSelection} with ${playerSelection}`);
 }
-
-const playerMove = playerSelection();
-console.log(playerMove);
