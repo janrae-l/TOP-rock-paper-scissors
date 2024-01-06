@@ -22,25 +22,31 @@ function getComputerChoice() {
 //const playerMove = playerPrompt();
 //console.log(playerMove);
 
-const playerSelection = "rock";
-const computerSelection = "scissors";
+function playRound(playerSelection, computerSelection) {
+  let decision = `It's a TIE! Play again`;
 
-if (
-  (playerSelection === "scissors" && computerSelection === "rock") ||
-  (playerSelection === "rock" && computerSelection === "paper") ||
-  (playerSelection === "paper" && computerSelection === "scissors")
-) {
-  console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-} else if (
-  (playerSelection === "scissors" && computerSelection === "scissors") ||
-  (playerSelection === "paper" && computerSelection === "paper") ||
-  (playerSelection === "rock" && computerSelection === "rock")
-) {
-  console.log(`It's a tie! Play again`);
-} else if (
-  (playerSelection === "rock" && computerSelection === "scissors") ||
-  (playerSelection === "paper" && computerSelection === "rock") ||
-  (playerSelection === "scissors" && computerSelection === "paper")
-) {
-  console.log(`You win! You beat ${computerSelection} with ${playerSelection}`);
+  if (
+    (playerSelection === "scissors" && computerSelection === "rock") ||
+    (playerSelection === "rock" && computerSelection === "paper") ||
+    (playerSelection === "paper" && computerSelection === "scissors")
+  ) {
+    return (decision = `You lose! ${computerSelection} beats ${playerSelection}`);
+  } else if (
+    (playerSelection === "scissors" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "paper") ||
+    (playerSelection === "rock" && computerSelection === "rock")
+  ) {
+    return decision;
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    return (decision = `You win! You beat ${computerSelection} with ${playerSelection}`);
+  }
 }
+
+const playerSelection = "scissors";
+const computerSelection = getComputerChoice();
+
+console.log(playRound(playerSelection, computerSelection));
