@@ -10,18 +10,14 @@ function getComputerChoice() {
 }
 
 function playerPrompt() {
-  let playerChoice = 0;
-
-  do {
-    playerChoice = prompt("Choose between rock, paper, scissors").toLowerCase();
-    if (
-      playerChoice === "rock" ||
-      playerChoice === "scissors" ||
-      playerChoice === "paper"
-    ) {
-      playerChoice = 1;
-    }
-  } while (playerChoice !== 1);
+  let playerChoice;
+  while (
+    playerChoice !== "scissors" &&
+    playerChoice !== "rock" &&
+    playerChoice !== "paper"
+  ) {
+    playerChoice = prompt("Rock, Paper, Scissors").toLowerCase();
+  }
 
   return playerChoice;
 }
