@@ -9,8 +9,6 @@ function getComputerChoice() {
   return compChoice;
 }
 
-//console.log(getComputerChoice());
-
 function playerPrompt() {
   const playerChoice = prompt(
     "Choose between rock, paper, scissors"
@@ -18,9 +16,6 @@ function playerPrompt() {
 
   return playerChoice;
 }
-
-//const playerMove = playerPrompt();
-//console.log(playerMove);
 
 function playRound(playerSelection, computerSelection) {
   let decision = `It's a TIE! Play again`;
@@ -49,18 +44,12 @@ function playRound(playerSelection, computerSelection) {
     decision = `You win! You beat ${computerSelection} with ${playerSelection}`;
   }
   return decision;
-  // }
-  // return `${userScore > compScore ? userScore : compScore}`
 }
-
-//console.log(playRound(playerSelection, computerSelection));
 
 function game() {
   let compScore = 0;
   let userScore = 0;
   let tieScore = 0;
-  //let decide = result.includes("lose");
-  //
 
   for (let i = 0; i < 5; i++) {
     let player = playerPrompt();
@@ -78,7 +67,6 @@ function game() {
     } else if (result.includes("TIE")) {
       tieScore++;
     }
-    // result = playRound(playerSelection, computerSelection);
   }
   if (tieScore > compScore + userScore) {
     console.log(`There are ${tieScore} tie scores. No one won the game`);
