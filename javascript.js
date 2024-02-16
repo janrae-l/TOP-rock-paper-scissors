@@ -33,6 +33,8 @@ function playerPrompt() {
   return playerChoice;
 }
 //console.log(getComputerChoice(), playerPrompt());
+let compScore = 0;
+let userScore = 0;
 
 function playRound(playerSelection, computerSelection) {
   let decision;
@@ -43,6 +45,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "scissors")
   ) {
     //console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+    compScore++;
     return (decision = `You lose! ${computerSelection} beats ${playerSelection}`);
   } else if (playerSelection === computerSelection) {
     //console.log(`It's a TIE! Play again`);
@@ -55,6 +58,7 @@ function playRound(playerSelection, computerSelection) {
     /*console.log(
       `You win! You beat ${computerSelection} with ${playerSelection}`
     );*/
+    userScore++;
     return (decision = `You win! You beat ${computerSelection} with ${playerSelection}`);
   }
 }
@@ -101,7 +105,7 @@ const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".compScore");
 
 const choicesBtn = document.querySelector(".choices");
-
+/*
 function scoreBoard(result) {
   let compScore = 0;
   let userScore = 0;
@@ -120,7 +124,7 @@ function scoreBoard(result) {
     }
   }
 }
-/*let compScore = 0;
+let compScore = 0;
 let userScore = 0;
 
 while (userScore <= 5 || compScore <= 5) {
@@ -185,7 +189,7 @@ if (userScore === 5 || compScore === 5) {
   }`;
 }
 */
-choicesBtn.addEventListener("click", function () {
+/*choicesBtn.addEventListener("click", function () {
   let compScore = 0;
   let userScore = 0;
   if (userScore === 5 || compScore === 5) {
@@ -219,4 +223,30 @@ choicesBtn.addEventListener("click", function () {
       playerScore.textContent = userScore;
     }
   }
+});*/
+
+function playGame(userChoice) {
+  const computerSelection = getComputerChoice();
+  const result = playRound(userChoice, computerSelection);
+  resultDply.textContent = result;
+
+  playerScore.textContent = userScore;
+  computerScore.textContent = compScore;
+
+  if (compScore === 5) {
+    resultDply.textContent = `The computer won with ${compScore} scores`;
+  } else if (userScore === 5) {
+    resultDply.textContent = `The computer won with ${userScore} scores.`;
+  }
+}
+
+rockBtn.addEventListener("click", function () {
+  playGame("rock");
+});
+
+paperBtn.addEventListener("click", function () {
+  playGame("paper");
+});
+scissorsBtn.addEventListener("click", function () {
+  playGame("scissors");
 });
