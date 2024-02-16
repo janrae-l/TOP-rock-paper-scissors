@@ -33,6 +33,7 @@ function playerPrompt() {
   return playerChoice;
 }
 //console.log(getComputerChoice(), playerPrompt());
+const computerSelection = getComputerChoice();
 function playRound(playerSelection, computerSelection) {
   let decision = `It's a TIE! Play again`;
 
@@ -99,13 +100,19 @@ const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
 
 rockBtn.addEventListener("click", function () {
-  playRound();
+  const playerSelection = "rock";
+  console.log(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
 });
 
 scissorsBtn.addEventListener("click", function () {
-  playRound();
+  const playerSelection = "scissors";
+  console.log(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
 });
 
 paperBtn.addEventListener("click", function () {
-  playRound();
+  const playerSelection = "paper";
+  console.log(playerSelection, computerSelection);
+  playRound(playerSelection, computerSelection);
 });
