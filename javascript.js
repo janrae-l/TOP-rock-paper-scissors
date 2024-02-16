@@ -32,7 +32,7 @@ function playerPrompt() {
 
   return playerChoice;
 }
-
+//console.log(getComputerChoice(), playerPrompt());
 function playRound(playerSelection, computerSelection) {
   let decision = `It's a TIE! Play again`;
 
