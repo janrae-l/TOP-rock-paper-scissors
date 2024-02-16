@@ -1,8 +1,5 @@
 "use strict";
 
-function randomIntFrom(min = 0, max = 3) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 function getComputerChoice() {
   const randNum = Math.floor(Math.random() * 3);
   let choice;
@@ -32,7 +29,6 @@ function playerPrompt() {
 
   return playerChoice;
 }
-//console.log(getComputerChoice(), playerPrompt());
 let compScore = 0;
 let userScore = 0;
 
@@ -44,28 +40,23 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors")
   ) {
-    //console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
     compScore++;
     return (decision = `You lose! ${computerSelection} beats ${playerSelection}`);
   } else if (playerSelection === computerSelection) {
-    //console.log(`It's a TIE! Play again`);
     return (decision = `It's a TIE! Play again`);
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    /*console.log(
-      `You win! You beat ${computerSelection} with ${playerSelection}`
-    );*/
     userScore++;
     return (decision = `You win! You beat ${computerSelection} with ${playerSelection}`);
   }
 }
-function game() {
+/*function game() {
   let tieScore = 0;
 
-  /*  for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
     let player = playerPrompt();
     console.log(player);
 
@@ -92,9 +83,8 @@ function game() {
       } scores and there ${tieScore >= 2 ? "are" : "is"} ${tieScore} tie score`
     );
   }*/
-}
 
-game();
+//game();
 
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
