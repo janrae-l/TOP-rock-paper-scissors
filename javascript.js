@@ -4,9 +4,20 @@ function randomIntFrom(min = 0, max = 3) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 function getComputerChoice() {
-  const choice = ["scissors", "rock", "paper"];
-  const compChoice = choice[randomIntFrom()];
-  return compChoice;
+  const randNum = Math.floor(Math.random() * 3);
+  let choice;
+  switch (randNum) {
+    case 0:
+      choice = "scissors";
+      break;
+    case 1:
+      choice = "paper";
+      break;
+    case 2:
+      choice = "rock";
+      break;
+  }
+  return choice;
 }
 
 function playerPrompt() {
