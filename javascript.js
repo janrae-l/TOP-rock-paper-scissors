@@ -52,7 +52,7 @@ function game() {
   let userScore = 0;
   let tieScore = 0;
 
-  for (let i = 0; i < 5; i++) {
+  /*  for (let i = 0; i < 5; i++) {
     let player = playerPrompt();
     console.log(player);
 
@@ -78,7 +78,7 @@ function game() {
         compScore > userScore ? compScore : userScore
       } scores and there ${tieScore >= 2 ? "are" : "is"} ${tieScore} tie score`
     );
-  }
+  }*/
 }
 
 game();
