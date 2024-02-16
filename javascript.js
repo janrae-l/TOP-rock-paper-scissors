@@ -59,8 +59,6 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 function game() {
-  let compScore = 0;
-  let userScore = 0;
   let tieScore = 0;
 
   /*  for (let i = 0; i < 5; i++) {
@@ -98,6 +96,28 @@ const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
 const resultDply = document.querySelector(".results");
+
+const playerScore = document.querySelector(".playerScore");
+const computerScore = document.querySelector(".compScore");
+
+function scoreBoard(result) {
+  let compScore = 0;
+  let userScore = 0;
+
+  if (userScore === 5 || compScore === 5) {
+    result.textContent = +`\n ${
+      playerScore > compScore ? "You win!" : "The computer wins, you lose"
+    }`;
+  } else {
+    if (result.textContent.includes("lose")) {
+      userScore++;
+      playerScore.textContent = userScore;
+    } else if (result.textContent.includes("win")) {
+      compScore++;
+      computerScore.textContent = compScore;
+    }
+  }
+}
 
 rockBtn.addEventListener("click", function () {
   const playerSelection = "rock";
