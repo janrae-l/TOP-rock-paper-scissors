@@ -100,12 +100,14 @@ const resultDply = document.querySelector(".results");
 const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".compScore");
 
+const choicesBtn = document.querySelector(".choices");
+
 function scoreBoard(result) {
   let compScore = 0;
   let userScore = 0;
 
   if (userScore === 5 || compScore === 5) {
-    resultDply.textContent = +`\n ${
+    resultDply.textContent = `${
       playerScore > compScore ? "You win!" : "The computer wins, you lose"
     }`;
   } else {
@@ -118,7 +120,7 @@ function scoreBoard(result) {
     }
   }
 }
-let compScore = 0;
+/*let compScore = 0;
 let userScore = 0;
 
 while (userScore <= 5 || compScore <= 5) {
@@ -182,3 +184,39 @@ if (userScore === 5 || compScore === 5) {
     playerScore > compScore ? "You win!" : "The computer wins, you lose"
   }`;
 }
+*/
+choicesBtn.addEventListener("click", function () {
+  let compScore = 0;
+  let userScore = 0;
+  if (userScore === 5 || compScore === 5) {
+    resultDply.textContent = +`\n ${
+      playerScore > compScore ? "You win!" : "The computer wins, you lose"
+    }`;
+  } else {
+    let target = event.target;
+    let playerSelection = "";
+
+    switch (target.id) {
+      case "rock":
+        playerSelection = "rock";
+        break;
+      case "paper":
+        playerSelection = "paper";
+        break;
+      case "scissors":
+        playerSelection = "scissors";
+        break;
+    }
+    console.log(playerSelection);
+    const computerSelection = getComputerChoice();
+    const result = playRound(playerSelection, computerSelection);
+
+    if (result.includes("lose")) {
+      compScore++;
+      computerScore.textContent = compScore;
+    } else if (result.includes("win")) {
+      userScore++;
+      playerScore.textContent = userScore;
+    }
+  }
+});
