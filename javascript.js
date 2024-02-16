@@ -105,94 +105,11 @@ const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".compScore");
 
 const choicesBtn = document.querySelector(".choices");
-/*
-function scoreBoard(result) {
-  let compScore = 0;
-  let userScore = 0;
 
-  if (userScore === 5 || compScore === 5) {
-    resultDply.textContent = `${
-      playerScore > compScore ? "You win!" : "The computer wins, you lose"
-    }`;
-  } else {
-    if (result.includes("lose")) {
-      compScore++;
-      computerScore.textContent = compScore;
-    } else if (result.includes("win")) {
-      userScore++;
-      playerScore.textContent = userScore;
-    }
-  }
-}
-let compScore = 0;
-let userScore = 0;
-
-while (userScore <= 5 || compScore <= 5) {
-  rockBtn.addEventListener("click", function () {
-    const playerSelection = "rock";
-    const computerSelection = getComputerChoice();
-    console.log(playerSelection, computerSelection);
-
-    let currentPlay = playRound(playerSelection, computerSelection);
-
-    resultDply.textContent = currentPlay;
-
-    if (currentPlay.includes("lose")) {
-      compScore++;
-      computerScore.textContent = compScore;
-    } else if (currentPlay.includes("win")) {
-      userScore++;
-      playerScore.textContent = userScore;
-    }
-  });
-
-  scissorsBtn.addEventListener("click", function () {
-    const playerSelection = "scissors";
-    const computerSelection = getComputerChoice();
-    console.log(playerSelection, computerSelection);
-
-    let currentPlay = playRound(playerSelection, computerSelection);
-
-    resultDply.textContent = currentPlay;
-
-    if (currentPlay.includes("lose")) {
-      compScore++;
-      computerScore.textContent = compScore;
-    } else if (currentPlay.includes("win")) {
-      userScore++;
-      playerScore.textContent = userScore;
-    }
-  });
-
-  paperBtn.addEventListener("click", function () {
-    const playerSelection = "paper";
-    const computerSelection = getComputerChoice();
-    console.log(playerSelection, computerSelection);
-
-    let currentPlay = playRound(playerSelection, computerSelection);
-
-    resultDply.textContent = currentPlay;
-
-    if (currentPlay.includes("lose")) {
-      compScore++;
-      computerScore.textContent = compScore;
-    } else if (currentPlay.includes("win")) {
-      userScore++;
-      playerScore.textContent = userScore;
-    }
-  });
-}
-
-if (userScore === 5 || compScore === 5) {
-  resultDply.textContent = +`\n ${
-    playerScore > compScore ? "You win!" : "The computer wins, you lose"
-  }`;
-}
-*/
 choicesBtn.addEventListener("click", function () {
   if (userScore === 5 || compScore === 5) {
-    resultDply.textContent = +`\n ${
-      playerScore > compScore ? "You win!" : "The computer wins, you lose"
+    resultDply.textContent += `\n  ${
+      playerScore > compScore ? "The computer wins, you lose" : "You win!"
     }`;
   } else {
     let target = event.target;
