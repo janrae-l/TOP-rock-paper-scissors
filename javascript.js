@@ -33,32 +33,31 @@ function playerPrompt() {
   return playerChoice;
 }
 //console.log(getComputerChoice(), playerPrompt());
-const computerSelection = getComputerChoice();
+
 function playRound(playerSelection, computerSelection) {
-  let decision = `It's a TIE! Play again`;
+  let decision;
 
   if (
     (playerSelection === "scissors" && computerSelection === "rock") ||
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors")
   ) {
-    console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-    decision = `You lose! ${computerSelection} beats ${playerSelection}`;
+    //console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+    return (decision = `You lose! ${computerSelection} beats ${playerSelection}`);
   } else if (playerSelection === computerSelection) {
-    console.log(`It's a TIE! Play again`);
+    //console.log(`It's a TIE! Play again`);
+    return (decision = `It's a TIE! Play again`);
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
-    console.log(
+    /*console.log(
       `You win! You beat ${computerSelection} with ${playerSelection}`
-    );
-    decision = `You win! You beat ${computerSelection} with ${playerSelection}`;
+    );*/
+    return (decision = `You win! You beat ${computerSelection} with ${playerSelection}`);
   }
-  return decision;
 }
-
 function game() {
   let compScore = 0;
   let userScore = 0;
@@ -98,21 +97,25 @@ game();
 const rockBtn = document.querySelector(".rock");
 const paperBtn = document.querySelector(".paper");
 const scissorsBtn = document.querySelector(".scissors");
+const resultDply = document.querySelector(".results");
 
 rockBtn.addEventListener("click", function () {
   const playerSelection = "rock";
+  const computerSelection = getComputerChoice();
   console.log(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
+  resultDply.textContent = playRound(playerSelection, computerSelection);
 });
 
 scissorsBtn.addEventListener("click", function () {
   const playerSelection = "scissors";
+  const computerSelection = getComputerChoice();
   console.log(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
+  resultDply.textContent = playRound(playerSelection, computerSelection);
 });
 
 paperBtn.addEventListener("click", function () {
   const playerSelection = "paper";
+  const computerSelection = getComputerChoice();
   console.log(playerSelection, computerSelection);
-  playRound(playerSelection, computerSelection);
+  resultDply.textContent = playRound(playerSelection, computerSelection);
 });
