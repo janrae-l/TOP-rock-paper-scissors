@@ -109,12 +109,12 @@ function scoreBoard(result) {
       playerScore > compScore ? "You win!" : "The computer wins, you lose"
     }`;
   } else {
-    if (result.textContent.includes("lose")) {
-      userScore++;
-      playerScore.textContent = userScore;
-    } else if (result.textContent.includes("win")) {
+    if (result.includes("lose")) {
       compScore++;
       computerScore.textContent = compScore;
+    } else if (result.includes("win")) {
+      userScore++;
+      playerScore.textContent = userScore;
     }
   }
 }
@@ -123,19 +123,28 @@ rockBtn.addEventListener("click", function () {
   const playerSelection = "rock";
   const computerSelection = getComputerChoice();
   console.log(playerSelection, computerSelection);
+
   resultDply.textContent = playRound(playerSelection, computerSelection);
+
+  scoreBoard(playRound(playerSelection, computerSelection));
 });
 
 scissorsBtn.addEventListener("click", function () {
   const playerSelection = "scissors";
   const computerSelection = getComputerChoice();
   console.log(playerSelection, computerSelection);
+
   resultDply.textContent = playRound(playerSelection, computerSelection);
+
+  scoreBoard(playRound(playerSelection, computerSelection));
 });
 
 paperBtn.addEventListener("click", function () {
   const playerSelection = "paper";
   const computerSelection = getComputerChoice();
   console.log(playerSelection, computerSelection);
+
   resultDply.textContent = playRound(playerSelection, computerSelection);
+
+  scoreBoard(playRound(playerSelection, computerSelection));
 });
