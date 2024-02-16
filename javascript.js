@@ -32,11 +32,7 @@ function playRound(playerSelection, computerSelection) {
   ) {
     console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
     decision = `You lose! ${computerSelection} beats ${playerSelection}`;
-  } else if (
-    (playerSelection === "scissors" && computerSelection === "scissors") ||
-    (playerSelection === "paper" && computerSelection === "paper") ||
-    (playerSelection === "rock" && computerSelection === "rock")
-  ) {
+  } else if (playerSelection === computerSelection) {
     console.log(`It's a TIE! Play again`);
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
