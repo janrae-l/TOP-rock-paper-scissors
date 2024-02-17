@@ -97,7 +97,7 @@ function game(userChoice) {
 
   if (userScore === 5 || compScore === 5) {
     resultDply.textContent += `
-    ${playerScore > compScore ? "You win!" : "The computer wins, you lose"}`;
+    ${userScore > compScore ? "You win!" : "The computer wins, you lose"}`;
     rockBtn.disabled = true;
     scissorsBtn.disabled = true;
     paperBtn.disabled = true;
@@ -124,6 +124,7 @@ playAgainBtn.addEventListener("click", function () {
 
   playerScore.textContent = userScore;
   computerScore.textContent = compScore;
+  resultDply.textContent = "";
 
   rockBtn.disabled = false;
   scissorsBtn.disabled = false;
