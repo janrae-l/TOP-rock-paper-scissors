@@ -86,6 +86,24 @@ function playRound(playerSelection, computerSelection) {
 
 //game();
 
+function game(userChoice) {
+  const computerSelection = getComputerChoice();
+  const result = playRound(userChoice, computerSelection);
+
+  playerScore.textContent = userScore;
+  computerScore.textContent = compScore;
+
+  resultDply.textContent = result;
+
+  if (userScore === 5 || compScore === 5) {
+    resultDply.textContent += `\n  ${
+      playerScore > compScore ? "The computer wins, you lose" : "You win!"
+    }`;
+    choicesBtn.disabled = true;
+    playAgainBtn = false;
+  }
+}
+
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorsBtn = document.querySelector("#scissors");
@@ -94,35 +112,26 @@ const resultDply = document.querySelector(".results");
 const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".compScore");
 
+const playAgainBtn = document.querySelector(".playAgainBtn");
+
 const choicesBtn = document.querySelector(".choices");
 
 choicesBtn.addEventListener("click", function () {
-  if (userScore === 5 || compScore === 5) {
-    resultDply.textContent += `\n  ${
-      playerScore > compScore ? "The computer wins, you lose" : "You win!"
-    }`;
-  } else {
-    let target = event.target;
-    let playerSelection = "";
+  let target = event.target;
+  let playerSelection = "";
 
-    switch (target.id) {
-      case "rock":
-        playerSelection = "rock";
-        break;
-      case "paper":
-        playerSelection = "paper";
-        break;
-      case "scissors":
-        playerSelection = "scissors";
-        break;
-    }
-    console.log(playerSelection);
-    const computerSelection = getComputerChoice();
-    const result = playRound(playerSelection, computerSelection);
-    playerScore.textContent = userScore;
-    computerScore.textContent = compScore;
-    resultDply.textContent = result;
+  switch (target.id) {
+    case "rock":
+      playerSelection = "rock";
+      break;
+    case "paper":
+      playerSelection = "paper";
+      break;
+    case "scissors":
+      playerSelection = "scissors";
+      break;
   }
+  game(playerSelection);
 });
 
 /*
