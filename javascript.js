@@ -96,11 +96,12 @@ function game(userChoice) {
   resultDply.textContent = result;
 
   if (userScore === 5 || compScore === 5) {
-    resultDply.textContent += `\n  ${
-      playerScore > compScore ? "The computer wins, you lose" : "You win!"
-    }`;
-    choicesBtn.disabled = true;
-    playAgainBtn = false;
+    resultDply.textContent += `
+    ${playerScore > compScore ? "You win!" : "The computer wins, you lose"}`;
+    rockBtn.disabled = true;
+    scissorsBtn.disabled = true;
+    paperBtn.disabled = true;
+    playAgainBtn.disabled = false;
   }
 }
 
@@ -113,8 +114,21 @@ const playerScore = document.querySelector(".playerScore");
 const computerScore = document.querySelector(".compScore");
 
 const playAgainBtn = document.querySelector(".playAgainBtn");
+playAgainBtn.disabled = true;
 
 const choicesBtn = document.querySelector(".choices");
+
+playAgainBtn.addEventListener("click", function () {
+  userScore = 0;
+  compScore = 0;
+
+  playerScore.textContent = userScore;
+  computerScore.textContent = compScore;
+
+  rockBtn.disabled = false;
+  scissorsBtn.disabled = false;
+  paperBtn.disabled = false;
+});
 
 choicesBtn.addEventListener("click", function () {
   let target = event.target;
