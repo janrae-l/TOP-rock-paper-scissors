@@ -53,39 +53,8 @@ function playRound(playerSelection, computerSelection) {
     return (decision = `You win! You beat ${computerSelection} with ${playerSelection}`);
   }
 }
-/*function game() {
-  let tieScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-    let player = playerPrompt();
-    console.log(player);
-
-    let computerOpt = getComputerChoice();
-    console.log(computerOpt);
-
-    let result = playRound(player, computerOpt);
-
-    if (result.includes("lose")) {
-      compScore++;
-    } else if (result.includes("win")) {
-      userScore++;
-    } else if (result.includes("TIE")) {
-      tieScore++;
-    }
-  }
-  if (tieScore > compScore + userScore) {
-    console.log(`There are ${tieScore} tie scores. No one won the game`);
-  } else {
-    const gameResult = compScore > userScore ? "Computer" : "User";
-    console.log(
-      `${gameResult} won the game with ${
-        compScore > userScore ? compScore : userScore
-      } scores and there ${tieScore >= 2 ? "are" : "is"} ${tieScore} tie score`
-    );
-  }*/
-
-//game();
-
+const body = document.querySelector("body");
+//Where the logic of the game happens
 function game(userChoice) {
   const computerSelection = getComputerChoice();
   const result = playRound(userChoice, computerSelection);
@@ -95,13 +64,20 @@ function game(userChoice) {
 
   resultDply.textContent = result;
 
-  if (userScore === 5 || compScore === 5) {
-    resultDply.textContent += `
-    ${userScore > compScore ? "You win!" : "The computer wins, you lose"}`;
+  if (userScore === 5) {
+    resultDply.textContent += `"You win!"`;
     rockBtn.disabled = true;
     scissorsBtn.disabled = true;
     paperBtn.disabled = true;
     playAgainBtn.disabled = false;
+    body.style.backgroundColor = "green";
+  } else if (compScore === 5) {
+    resultDply.textContent += `"The computer wins, you lose"`;
+    rockBtn.disabled = true;
+    scissorsBtn.disabled = true;
+    paperBtn.disabled = true;
+    playAgainBtn.disabled = false;
+    body.style.backgroundColor = "red";
   }
 }
 
@@ -148,30 +124,3 @@ choicesBtn.addEventListener("click", function () {
   }
   game(playerSelection);
 });
-
-/*
-function playGame(userChoice) {
-  const computerSelection = getComputerChoice();
-  const result = playRound(userChoice, computerSelection);
-  resultDply.textContent = result;
-
-  playerScore.textContent = userScore;
-  computerScore.textContent = compScore;
-
-  if (compScore === 5) {
-    resultDply.textContent = `The computer won with ${compScore} scores`;
-  } else if (userScore === 5) {
-    resultDply.textContent = `The computer won with ${userScore} scores.`;
-  }
-}
-
-rockBtn.addEventListener("click", function () {
-  playGame("rock");
-});
-
-paperBtn.addEventListener("click", function () {
-  playGame("paper");
-});
-scissorsBtn.addEventListener("click", function () {
-  playGame("scissors");
-});*/
