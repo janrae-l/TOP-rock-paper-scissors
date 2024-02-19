@@ -66,13 +66,15 @@ function game(userChoice) {
 
   if (userScore === 5) {
     resultDply.textContent += `"You win!"`;
+    resultDply.style.backgroundColor = "yellow";
     rockBtn.disabled = true;
     scissorsBtn.disabled = true;
     paperBtn.disabled = true;
     playAgainBtn.disabled = false;
     body.style.backgroundColor = "green";
   } else if (compScore === 5) {
-    resultDply.textContent += `"The computer wins, you lose"`;
+    resultDply.textContent += ` "The computer wins, you lose"`;
+    resultDply.style.backgroundColor = "yellow";
     rockBtn.disabled = true;
     scissorsBtn.disabled = true;
     paperBtn.disabled = true;
@@ -105,6 +107,7 @@ playAgainBtn.addEventListener("click", function () {
   rockBtn.disabled = false;
   scissorsBtn.disabled = false;
   paperBtn.disabled = false;
+  body.style.backgroundColor = "white";
 });
 
 choicesBtn.addEventListener("click", function () {
