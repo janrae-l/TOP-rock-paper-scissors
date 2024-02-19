@@ -65,14 +65,14 @@ function game(userChoice) {
   resultDply.textContent = result;
 
   if (userScore === 5) {
-    resultDply.textContent += `You win with five points!`;
+    resultDply.textContent += ` You win with five points!`;
     rockBtn.disabled = true;
     scissorsBtn.disabled = true;
     paperBtn.disabled = true;
     playAgainBtn.disabled = false;
     body.style.backgroundColor = "green";
   } else if (compScore === 5) {
-    resultDply.textContent += `The computer wins with 5 points, you lose`;
+    resultDply.textContent += ` The computer wins with 5 points, you lose`;
     rockBtn.disabled = true;
     scissorsBtn.disabled = true;
     paperBtn.disabled = true;
@@ -106,7 +106,6 @@ playAgainBtn.addEventListener("click", function () {
   scissorsBtn.disabled = false;
   paperBtn.disabled = false;
   body.style.backgroundColor = "white";
-  resultDply.style.backgroundColor = "white";
 });
 
 choicesBtn.addEventListener("click", function () {
